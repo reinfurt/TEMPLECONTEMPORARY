@@ -10,7 +10,6 @@
 	// 	globals
 	
 	var timeout;
-	var source;
 	var message;
 	var pointer;
 
@@ -19,9 +18,7 @@
 
 		var div = document.getElementById(id); 
 		var target = document.getElementById(display);
-		source = document.createDocumentFragment();
-
-		buildSource(div);
+		var source = buildSource(div);
 
 		message = source.childNodes;
 		pointer = 0;                      
@@ -31,59 +28,49 @@
 			clearTimeout(timeout);
 			timeout=null;
 			if (!delay) delay = 50;
-			animateMessage(div,delay,target);
+			animateMessage(div,delay,target,source);
 		}	
 	}
 
 
-        function buildSource(node) {
+        function buildSource(root) {
 
                 var next;
+		var node = root.firstChild;
+                var source = document.createDocumentFragment();
 
-                if (node.nodeType === 1) {
+		do {      
+                     	next = node.nextSibling;
 
-                        if (node = node.firstChild) {
+	                if (node.nodeType === 1) {
 	
-                                do {                   
-                     			next = node.nextSibling;
-					if (node.firstChild) {
-						
-						source.appendChild(node.cloneNode(true));
+				source.appendChild(node.cloneNode(true));
 
-					} else {
+	                } else if (node.nodeType === 3) {
 
-	                                        buildSource(node);
-					}	
-
-                                } while(node = next);
-                        }
-
-                } else if (node.nodeType === 3) {
-
-			var fragment = document.createDocumentFragment();
-                        var text = node.textContent;
-
-			for (i = 0; i < text.length; i++) {       
+        	                var text = node.textContent;
 	
-				var temp = document.createElement("span");
-				temp.textContent = text[i];
-				fragment.appendChild(temp);
-			}
+				for (i = 0; i < text.length; i++) {       
+	
+					var temp = document.createElement("span");
+					temp.textContent = text[i];
+					source.appendChild(temp);
+				}
+        	        }
+ 
+		} while(node = next);
 
-			source.appendChild(fragment);
-                }
-
-                return true;
+                return source;
         }
 
 
-        function animateMessage(div,delay,target) {
+        function animateMessage(div,delay,target,source) {
 		
 		if (pointer < source.childNodes.length) {
 
 			target.appendChild(source.childNodes[pointer].cloneNode(true));
 			pointer++;
-			timeout = setTimeout(function(){animateMessage(div,delay,target);}, delay);
+			timeout = setTimeout(function(){animateMessage(div,delay,target,source);}, delay);
 
 		} else {
 
