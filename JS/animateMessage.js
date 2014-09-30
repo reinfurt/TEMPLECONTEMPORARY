@@ -3,24 +3,23 @@
 	//
 	// 	adapted from animatePunctuation.js
 	//
-	//   	id : {class}
-	//	delay : ## [50]
+	//   	source : {id}
+	//   	display : {id}
 	//	animate : {true, false}	
+	//	delay : ## [50]
 
 	// 	globals
 	
 	var timeout;
-	var message;
 	var pointer;
 
 
-        function initMessage(id, delay, display, animate) {
+        function initMessage(sourceId, displayId, animate, delay) {
 
-		var div = document.getElementById(id); 
-		var target = document.getElementById(display);
-		var source = buildSource(div);
+		var source = document.getElementById(sourceId); 
+		var display = document.getElementById(displayId);
+		var message = buildMessage(source);
 
-		message = source.childNodes;
 		pointer = 0;                      
 
 		if (animate) {
@@ -28,23 +27,23 @@
 			clearTimeout(timeout);
 			timeout=null;
 			if (!delay) delay = 50;
-			animateMessage(div,delay,target,source);
+			animateMessage(source,display,message,delay);
 		}	
 	}
 
 
-        function buildSource(root) {
+        function buildMessage(root) {
 
                 var next;
 		var node = root.firstChild;
-                var source = document.createDocumentFragment();
+                var message = document.createDocumentFragment();
 
 		do {      
                      	next = node.nextSibling;
 
 	                if (node.nodeType === 1) {
 	
-				source.appendChild(node.cloneNode(true));
+				message.appendChild(node.cloneNode(true));
 
 	                } else if (node.nodeType === 3) {
 
@@ -54,23 +53,23 @@
 	
 					var temp = document.createElement("span");
 					temp.textContent = text[i];
-					source.appendChild(temp);
+					message.appendChild(temp);
 				}
         	        }
  
 		} while(node = next);
 
-                return source;
+                return message;
         }
 
 
-        function animateMessage(div,delay,target,source) {
+        function animateMessage(source,display,message,delay) {
 		
-		if (pointer < source.childNodes.length) {
+		if (pointer < message.childNodes.length) {
 
-			target.appendChild(source.childNodes[pointer].cloneNode(true));
+			display.appendChild(message.childNodes[pointer].cloneNode(true));
 			pointer++;
-			timeout = setTimeout(function(){animateMessage(div,delay,target,source);}, delay);
+			timeout = setTimeout(function(){animateMessage(source,display,message,delay);}, delay);
 
 		} else {
 
@@ -84,7 +83,7 @@
 
  		if (timeout == null) {
 							
-			initMessage("animateMessage", delay, "target", true);			
+			initMessage("animateMessage","target",true,delay);			
 			return true;
 
 		} else {

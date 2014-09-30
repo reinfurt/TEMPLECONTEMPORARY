@@ -2,12 +2,72 @@
 require_once("GLOBAL/head.php"); 
 ?>
 
-        <!-- MAIN -->
+        <!-- DISPLAY -->
 
-        <div id='main' class='<?php echo ($language == "en") ? "englishMainContainer" : "arabicMainContainer" ?>'>
+        <div id='display' class='guideContainer courier red'>
+        </div>
+
+
+        <!-- SOURCE -->
+
+        <div id='source' class='guideContainer courier hide'>
+
+
+		<?php
+	
+			// SQL object only
+				
+			$sql    = "SELECT * FROM objects WHERE objects.id = $id;";
+			$result =  MYSQL_QUERY($sql);
+			$myrow  =  MYSQL_FETCH_ARRAY($result);
+			$deck = $myrow["deck"];
+			$body = $myrow["body"];
+
+			// replace [ and ] with footnote style
+
+			$bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
+
+			$html = $bodyParsed;
+                        echo nl2br($html);
+		?>
+
+Our mission is to re-imagine the social function of art <a href=''>through
+questions</a> of local relevance and international significance. Here is how
+we try to do it: 1. Our front door sign; 2. Seat Cushions; 3. Neon Signs; 4.
+Silk-screened Calendars; 5. Funeral for a Home. <a href=''>Test</a>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- MENU -->
 
+<!--
         <div id='menu' class='<?php echo ($language == "en") ? "englishMenuContainer blue " : "arabicMenuContainer red " ?> tahoma'>
 
                 <p dir="rtl" lang="AR" class="tahoma green">
@@ -27,41 +87,21 @@ require_once("GLOBAL/head.php");
                                 $thisLanguage = $language;
                                 if (!$breadcrumbsMode) ($id) ? $breadcrumbsMode = TRUE : $breadcrumbsMode = FALSE;
 
-                                displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
+                                // displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
                         ?>
                 </ul>
         </p>
         </div>
 
-	<!-- TEXT COLUMN --> 
+-->
 
-	<div id='text' <?php echo ($language == "en") ? "class='leftContainer courier medium'" : "class='rightContainer courier 
-mediumadjust' dir='rtl' lang='AR'" ?>>
 
-		<?php
-	
-			// SQL object only
-				
-			$sql    = "SELECT * FROM objects WHERE objects.id = $id;";
-			$result =  MYSQL_QUERY($sql);
-			$myrow  =  MYSQL_FETCH_ARRAY($result);
-			$deck = $myrow["deck"];
-			$body = $myrow["body"];
 
-			// replace [ and ] with footnote style
 
-			$bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
 
-			$html = $bodyParsed;
-                        echo nl2br($html);
-		?>
-	</div>
-	
 
-	<!-- IMAGES COLUMN --> 
 
-	<div id='images' <?php echo ($language == "en") ? "class='rightContainer tahoma green'" : "class='leftContainer tahoma green' dir='rtl' lang='AR'" ?>>
-
+<!--
 		<?php
 
 			// SQL object plus media	
@@ -88,12 +128,10 @@ wires, media WHERE objects.id = $id AND wires.toid = objects.id AND media.object
 				$i++;
 			}
 	
-			echo nl2br($html);
+			// echo nl2br($html);
 		?>
-	</div>
-	</div> 
+-->
 
-	<!-- /MAIN -->
 
 <?php
 	require_once("GLOBAL/foot.php"); 

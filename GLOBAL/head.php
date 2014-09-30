@@ -57,20 +57,6 @@
 <!-- <body style="background-image: url('MEDIA/background.jpg');"> -->
 <body>
 
-	<!-- TARGET -->
-	
-	<div id='target' class='guideContainer courier red'> 
-	</div>
-
-
-	<!--  GUIDE  -->
-	
-	<div id='guide' class='guideContainer courier hide'>Our mission is to 
-re-imagine the social function of art <a href=''>through questions</a> of 
-local relevance and international significance. Here is how we try to do 
-it: 1. Our front door sign; 2. Seat Cushions; 3. Neon Signs; 4. 
-Silk-screened Calendars; 5. Funeral for a Home.
-<a href=''>Test</a></div>
 
 
 <!-- <iframe src="http://darinrowland.com" width="98%" height="1000px"></iframe> -->
