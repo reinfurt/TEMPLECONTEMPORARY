@@ -1,0 +1,319 @@
+/* Document */
+
+body {
+	font-size: 15px;
+	line-height: 20px;
+	color: #000;
+	background-color: #FFF;
+	}
+
+a:link {	
+	color: #0CF; 
+	text-decoration: none; 
+	}
+
+a:visited {
+	color: #0CF; 
+	}
+
+a:hover {
+	color: #000; 
+	}
+	
+a:active { 
+	color: #FFF; 
+	}
+
+
+/* Fonts */
+
+.times {
+	font-family: "Times New Roman", Times, serif; 
+	}
+
+.comicsans {
+	font-family: "Comic Sans", "Comic Sans MS", cursive;
+	}
+
+.tahoma {
+	font-family: "Tahoma", Geneva, sans-serif;
+	}
+
+.helvetica {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	}
+
+.monaco {
+        font-family: Monaco, "Lucida Console", monospace;
+        }
+
+.courier {
+        font-family: "Courier New", Courier, monospace;
+        }
+
+.big {
+        font-size: 26px;
+        line-height: 26px;
+        }
+
+.medium {
+        font-size: 14px;
+        line-height: 20px;
+	/* letter-spacing: 1px; */
+        }
+
+.mediumadjust {
+        font-size: 15px;
+        line-height: 20px;
+	/* letter-spacing: 1px; */
+        }
+
+.caption {
+        font-size: 12px;
+        line-height: 14px;
+        }
+
+.footnote {
+        font-size: 12px;
+        line-height: 14px; 	  
+	vertical-align: top;
+        }
+
+
+/* id */
+
+#mainScroll {
+	height:90%;
+	}
+
+#textScroll {
+	height:100%; 
+	overflow:auto;
+	}
+
+#imageScroll {
+	height:100%; 
+	overflow:auto;
+	}
+
+
+/* Containers */
+
+.englishContainer {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	white-space: nowrap;
+	z-index:99;
+	}
+
+.arabicContainer {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	white-space: nowrap;
+	z-index:99;
+	}
+
+.englishMainContainer {
+	/* wraps menu, left, right */
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	width: 98%;
+	}	
+
+.arabicMainContainer {
+	/* wraps menu, left, right */
+	position: absolute;
+	top: 40px;
+	right: 0px;
+	width: 98%;
+	}	
+
+.englishMenuContainer {
+	position: relative;
+	left: 20px;
+	z-index: 99;
+	}
+
+.arabicMenuContainer {
+	position: relative;
+	right: 20px;
+	z-index: 99;
+	}	
+
+.leftContainer {
+	position: absolute;
+	left: 20px;
+	width: 46%;
+	padding-bottom:40px;
+	}	
+
+.rightContainer {
+	position: absolute;
+	right: 20px;
+	width: 46%;
+	}	
+
+.middleContainer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+ 	/* margin-top: -240px; */
+	/* margin-left: -426px; */
+	width: 900px;
+	height: 300px;
+	}	
+
+.topleftContainer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 50%;
+	height: 50%;
+	}	
+
+.toprightContainer {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	}	
+
+.bottomleftContainer {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 50%;
+	height: 50%;
+	}	
+
+.bottomrightContainer {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	width: 50%;
+	height: 50%;
+	}	
+		
+.bottomleftcornerContainer {
+	position: fixed;
+	left: 20px;
+	bottom: 48px;
+	}	
+
+.bottomrightcornerContainer {
+	position: fixed;
+	right: 20px;
+	bottom: 10px;
+	}	
+
+.planetariumContainer {
+	position: fixed;
+	right: 176px;
+	bottom: 126px;
+	z-index: 99;
+	/*width: 200px;*/
+	}	
+
+.innerContainerCenteredEnglish {
+	position: absolute;
+	left:35%;
+	top:50%;
+	width:50%;
+	}
+
+.innerContainerCenteredArabic {
+	position: absolute;
+	right:35%;
+	top:50%;
+	width:50%;
+	}
+
+.timeContainer {
+	position: fixed;
+	text-align: left;
+	height: 36px;
+	width: 300px;
+	/* background-color: #FFA; */
+	}
+
+.imageContainer {
+	padding: 100px;
+	}
+
+.captionContainer {
+	padding-top: 10px;
+	}
+	
+	
+/* Navigation */
+
+.active {
+	margin-left: -40px;
+	}
+
+.active a {
+	/*color:#000;*/
+	}
+
+.active a:hover {
+	/*color:#00F;*/
+	}
+
+.active a:active {
+	/*color:#FFF;*/
+	}
+
+.static {
+	margin-left: -40px;
+	}
+	
+.static a {
+	/*color:#FC0;*/
+	}
+
+.static a:hover {
+	color:#000;
+	}
+
+.static a:active {
+	color:#FFF;
+	}
+
+
+/* Utility */
+
+.red{
+	color:#F00;
+	}
+
+.red a {
+	color:#00F;
+	}
+
+.green{
+	color:#609;
+	}
+
+.green a {
+	color:#609;
+	}
+
+.blue{
+	color:#0CF;
+	}
+
+.blue a {
+	color:#0CF;
+	}
+
+.hide 	{
+	visibility: hidden;
+	}
+
+.show 	{
+	visibility: visible;
+	}
