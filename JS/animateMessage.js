@@ -15,9 +15,10 @@
 	var pointer;
 
 
-        function initMessage(id, delay, animate) {
+        function initMessage(id, delay, display, animate) {
 
 		var div = document.getElementById(id); 
+		var target = document.getElementById(display);
 		source = document.createDocumentFragment();
 
 		buildSource(div);
@@ -30,7 +31,7 @@
 			clearTimeout(timeout);
 			timeout=null;
 			if (!delay) delay = 50;
-			animateMessage(div,delay);
+			animateMessage(div,delay,target);
 		}	
 	}
 
@@ -47,7 +48,6 @@
                      			next = node.nextSibling;
 					if (node.firstChild) {
 						
-						// no more recursion, add to source
 						source.appendChild(node.cloneNode(true));
 
 					} else {
@@ -77,18 +77,17 @@
         }
 
 
-        function animateMessage(div,delay) {
+        function animateMessage(div,delay,target) {
+		
+		if (pointer < source.childNodes.length) {
 
-		if (pointer < message.length) {
-
-	                var target = document.getElementById("target");
-
-			target.appendChild(message[pointer].cloneNode(true));
+			target.appendChild(source.childNodes[pointer].cloneNode(true));
 			pointer++;
-			timeout = setTimeout(function(){animateMessage(div,delay);}, delay);
+			timeout = setTimeout(function(){animateMessage(div,delay,target);}, delay);
+
 		} else {
 
-	                console.log("end of message");
+	                console.log("stop");
 			startStopAnimateMessage();
 		}
 	}
@@ -98,7 +97,7 @@
 
  		if (timeout == null) {
 							
-			initMessage("animateMessage", delay, true);			
+			initMessage("animateMessage", delay, "target", true);			
 			return true;
 
 		} else {
