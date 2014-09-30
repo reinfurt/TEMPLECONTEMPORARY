@@ -20,7 +20,7 @@
 
         <script type="text/javascript">
 
-		document.onload = initMessage("source","display",true,delay);
+		document.onload = initMessage("source","display",true,10);
 	
 	</script>
 	

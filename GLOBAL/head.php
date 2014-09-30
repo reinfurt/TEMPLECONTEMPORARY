@@ -54,8 +54,10 @@
 	<script type="text/javascript" src="JS/animateMessage.js"></script>
 </head>
 
-<!-- <body style="background-image: url('MEDIA/background.jpg');"> -->
-<body>
+<body style="background-image: url('MEDIA/background.jpg');">
+<!-- 
+<body> 
+-->
 
 
 

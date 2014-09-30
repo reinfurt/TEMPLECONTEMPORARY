@@ -12,29 +12,23 @@ require_once("GLOBAL/head.php");
 
         <div id='source' class='guideContainer courier hide'>
 
-
 		<?php
 	
 			// SQL object only
 				
-			$sql    = "SELECT * FROM objects WHERE objects.id = $id;";
+			$sql    = "SELECT * FROM objects WHERE objects.id = $id AND objects.active = 1;";
 			$result =  MYSQL_QUERY($sql);
 			$myrow  =  MYSQL_FETCH_ARRAY($result);
-			$deck = $myrow["deck"];
 			$body = $myrow["body"];
 
 			// replace [ and ] with footnote style
 
-			$bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
+			// $bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
+			// $html = $bodyParsed;
 
-			$html = $bodyParsed;
+			$html = $body;
                         echo nl2br($html);
 		?>
-
-Our mission is to re-imagine the social function of art <a href=''>through
-questions</a> of local relevance and international significance. Here is how
-we try to do it: 1. Our front door sign; 2. Seat Cushions; 3. Neon Signs; 4.
-Silk-screened Calendars; 5. Funeral for a Home. <a href=''>Test</a>
 
         </div>
 
