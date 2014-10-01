@@ -24,6 +24,12 @@ a:active {
 	color: #FFF; 
 	}
 
+iframe {
+    /*display: block;*/
+    width: 100%;
+    height: 100%;
+}
+
 
 /* Fonts */
 
@@ -82,36 +88,29 @@ a:active {
 
 /* id */
 
-#mainScroll {
-	height:90%;
+#iframe {
+	/* overflow:auto; */
 	}
 
-#textScroll {
-	height:100%; 
-	overflow:auto;
-	}
 
-#imageScroll {
-	height:100%; 
-	overflow:auto;
-	}
 
 
 /* Containers */
 
-.englishContainer {
+.iframeContainer {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:0;
+	}
+
+.displayContainer {
 	position: fixed;
 	top: 20px;
 	left: 20px;
-	white-space: nowrap;
-	z-index:99;
-	}
-
-.arabicContainer {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	white-space: nowrap;
+	width: 67%;
 	z-index:99;
 	}
 
@@ -123,25 +122,11 @@ a:active {
 	width: 98%;
 	}	
 
-.arabicMainContainer {
-	/* wraps menu, left, right */
-	position: absolute;
-	top: 40px;
-	right: 0px;
-	width: 98%;
-	}	
-
 .englishMenuContainer {
 	position: relative;
 	left: 20px;
 	z-index: 99;
 	}
-
-.arabicMenuContainer {
-	position: relative;
-	right: 20px;
-	z-index: 99;
-	}	
 
 .leftContainer {
 	position: absolute;
@@ -238,10 +223,6 @@ a:active {
 	height: 36px;
 	width: 300px;
 	/* background-color: #FFA; */
-	}
-
-.imageContainer {
-	padding: 100px;
 	}
 
 .captionContainer {

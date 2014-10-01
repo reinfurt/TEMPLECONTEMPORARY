@@ -39,7 +39,7 @@ if ( ($dev) || ($live) ) {
                                 $thisLanguage = $language;
                                 if (!$breadcrumbsMode) ($id) ? $breadcrumbsMode = TRUE : $breadcrumbsMode = FALSE;
 
-                                displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
+                                // displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
                         ?>
                 </ul>
         </p>
