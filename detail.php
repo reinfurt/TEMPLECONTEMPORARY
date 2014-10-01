@@ -2,62 +2,6 @@
 require_once("GLOBAL/head.php"); 
 ?>
 
-        <!-- DISPLAY -->
-
-        <div id='display' class='guideContainer courier red'>
-        </div>
-
-
-        <!-- SOURCE -->
-
-        <div id='source' class='guideContainer courier hide'>
-
-		<?php
-	
-			// SQL object only
-				
-			$sql    = "SELECT * FROM objects WHERE objects.id = $id AND objects.active = 1;";
-			$result =  MYSQL_QUERY($sql);
-			$myrow  =  MYSQL_FETCH_ARRAY($result);
-			$body = $myrow["body"];
-
-			// replace [ and ] with footnote style
-
-			// $bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
-			// $html = $bodyParsed;
-
-			$html = $body;
-                        echo nl2br($html);
-		?>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- MENU -->
 

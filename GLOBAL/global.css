@@ -8,16 +8,16 @@ body {
 	}
 
 a:link {	
-	color: #0CF; 
+	color: #00F; 
 	text-decoration: none; 
 	}
 
 a:visited {
-	color: #0CF; 
+	color: #00F; 
 	}
 
 a:hover {
-	color: #000; 
+	color: #0CF; 
 	}
 	
 a:active { 

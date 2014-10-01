@@ -23,7 +23,7 @@
 
 	$dev = $_REQUEST['dev'];
 	$dev = systemCookie("devCookie", $dev, 0);
-	// if (!$dev) die('Under construction . . .');
+	if (!$dev) die('Under construction . . .');
 	
 	// Alt for dev options
 	
@@ -54,11 +54,37 @@
 	<script type="text/javascript" src="JS/animateMessage.js"></script>
 </head>
 
-<body style="background-image: url('MEDIA/background.jpg');">
-<!-- 
 <body> 
--->
 
+        <!-- DISPLAY -->
+
+        <div id='display' class='guideContainer courier'>
+        </div>
+
+
+        <!-- SOURCE -->
+
+        <div id='source' class='guideContainer courier hide'>
+
+                <?php
+
+                        // SQL object only
+
+                        $sql    = "SELECT * FROM objects WHERE objects.id = $id AND objects.active = 1;";
+                        $result =  MYSQL_QUERY($sql);
+                        $myrow  =  MYSQL_FETCH_ARRAY($result);
+                        $body = $myrow["body"];
+
+                        // replace [ and ] with footnote style
+
+                        // $bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
+                        // $html = $bodyParsed;
+
+                        $html = $body;
+                        echo nl2br($html);
+                ?>
+
+        </div>
 
 
 <!-- <iframe src="http://darinrowland.com" width="98%" height="1000px"></iframe> -->
