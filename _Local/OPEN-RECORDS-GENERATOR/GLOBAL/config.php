@@ -59,7 +59,7 @@
 function dbConnectMain($dbUser) {
 
 	$dbMainHost = "localhost";
-	$dbMainDbse = "templecontemporary";
+	$dbMainDbse = "templecontemp_local";
 
 	if 		($dbUser == 1) {		$dbMainUser = "root"; 	$dbMainPass = ""; 
 }

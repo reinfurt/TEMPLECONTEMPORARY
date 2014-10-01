@@ -11,7 +11,7 @@ function systemDatabase() {
 	$dbMainHost = "localhost";
 	$dbMainUser = "root";
 	$dbMainPass = "";
-	$dbMainDbse = "templecontemporary";
+	$dbMainDbse = "templecontemp_local";
 
 	$dbConnect = MYSQL_CONNECT($dbMainHost, $dbMainUser, $dbMainPass);
 	MYSQL_SELECT_DB($dbMainDbse, $dbConnect);
