@@ -13,7 +13,6 @@
 	var timeout;
 	var pointer;
 
-
         function initMessage(sourceId, displayId, animate, delay) {
 
 		var source = document.getElementById(sourceId); 
@@ -28,10 +27,9 @@
 			timeout=null;
 			if (!delay) delay = 50;
 			animateMessage(source,display,message,delay);
-                // showMessage('displayWrapper','displayControl','show');
-
 		}	
 
+                // hideShowMessage('displayWrapper','displayControl','show');
 
 	}
 
@@ -111,20 +109,9 @@
 			control.textContent = "+";
 	
 		} else if ((display.style.overflow == "hidden") || forceAction == "show") {
-	
+
 			display.style.overflow = "auto";
 	        	display.style.height = "auto";
 			control.textContent = "×";
 		}
-	}
-
-
-	function showMessage(displayId,controlId,forceAction) {
-	
-		var display = document.getElementById(displayId);
-		var control = document.getElementById(controlId);
-	
-			display.style.overflow = "auto";
-	        	display.style.height = "auto";
-			control.textContent = "×";
 	}
