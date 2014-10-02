@@ -58,7 +58,12 @@
 
         <!-- DISPLAY -->
 
-        <div id='display' class='displayContainer helvetica'>
+        <div id="displayWrapper" class="displayContainer helvetica">
+	<a href="#" id="displayControl" class="" onmousedown = "hideShowMessage('displayWrapper','displayControl');">×</a>
+        <br />
+        <br />
+	<div id="display">
+        </div>
         </div>
 
 
@@ -103,7 +108,7 @@ LEFT JOIN media ON objects.id = media.object AND media.active = 1 WHERE objects.
 
         <div class='iframeContainer'>
 
-	<!-- <iframe id="iframe" src="http://localhost/TEMPLECONTEMPORARY/MEDIA/background.jpg"> -->
+	<iframe id="iframe" name="iframe" src="http://localhost/TEMPLECONTEMPORARY/MEDIA/background.jpg">
 
 	<?php
 
@@ -126,11 +131,15 @@ LEFT JOIN media ON objects.id = media.object AND media.active = 1 WHERE objects.
 
         </div>
 
-
-
-
-
-
+	<script type="text/javascript">
+	
+		document.getElementById('iframe').onload = function() {
+	
+			hideShowMessage('displayWrapper','displayControl','hide');
+		}
+	
+	</script>
+	
 
 
 

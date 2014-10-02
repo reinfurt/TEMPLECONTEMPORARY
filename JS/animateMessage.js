@@ -28,7 +28,11 @@
 			timeout=null;
 			if (!delay) delay = 50;
 			animateMessage(source,display,message,delay);
+                // showMessage('displayWrapper','displayControl','show');
+
 		}	
+
+
 	}
 
 
@@ -92,4 +96,35 @@
 			timeout=null;
 			return false;
 		}
+	}
+
+
+	function hideShowMessage(displayId,controlId,forceAction) {
+	
+		var display = document.getElementById(displayId);
+		var control = document.getElementById(controlId);
+	
+ 		if ((display.style.overflow != "hidden") || forceAction == "hide") {
+	
+			display.style.overflow = "hidden";
+        		display.style.height = "20px";
+			control.textContent = "+";
+	
+		} else if ((display.style.overflow == "hidden") || forceAction == "show") {
+	
+			display.style.overflow = "auto";
+	        	display.style.height = "auto";
+			control.textContent = "×";
+		}
+	}
+
+
+	function showMessage(displayId,controlId,forceAction) {
+	
+		var display = document.getElementById(displayId);
+		var control = document.getElementById(controlId);
+	
+			display.style.overflow = "auto";
+	        	display.style.height = "auto";
+			control.textContent = "×";
 	}
