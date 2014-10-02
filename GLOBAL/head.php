@@ -105,7 +105,7 @@ media.rank;";
         <!-- IFRAME -->
 
         <div class='iframeContainer'>
-	<iframe id="iframe" name="iframe" src="iframe.php?id=<?php echo $id; ?>">
+	<iframe id="iframe" name="iframe" src="iframe.php?id=<?php echo $id; ?>" frameborder="0">
 	</iframe>
         </div>
 
