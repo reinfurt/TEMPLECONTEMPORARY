@@ -58,7 +58,7 @@
 
         <!-- DISPLAY -->
 
-        <div id='display' class='displayContainer courier'>
+        <div id='display' class='displayContainer helvetica'>
         </div>
 
 
@@ -103,7 +103,7 @@ LEFT JOIN media ON objects.id = media.object AND media.active = 1 WHERE objects.
 
         <div class='iframeContainer'>
 
-	<iframe id="iframe" src="http://localhost/TEMPLECONTEMPORARY/MEDIA/background.jpg">
+	<!-- <iframe id="iframe" src="http://localhost/TEMPLECONTEMPORARY/MEDIA/background.jpg"> -->
 
 	<?php
 

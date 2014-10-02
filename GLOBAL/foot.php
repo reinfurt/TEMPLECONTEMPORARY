@@ -3,7 +3,7 @@
                 <script type="text/javascript" src="JS/animateCircle.js"></script>
 		<div>
 			<a href="<?php echo ($pageName == 'project') ? 'index.php' : 'project.php' ?>">
-				<img src="MEDIA/logo.gif" style="width:300px;">
+				<img src="MEDIA/logo-red.gif" style="width:300px;">
                         	<!-- 
 				<canvas id="canvas3" width="200" height="200">
 				loading...
