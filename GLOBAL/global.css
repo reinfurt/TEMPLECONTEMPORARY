@@ -112,6 +112,11 @@ iframe {
 	left: 20px;
 	width: 67%;
 	z-index:99;
+	background: rgba(255,255,255, .75);
+	/*
+	background-color:#FFF;
+	opacity:0.5;
+	*/
 	}
 
 .englishMainContainer {
