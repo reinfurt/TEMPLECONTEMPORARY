@@ -7,91 +7,79 @@ if ( ($dev) || ($live) ) {
 ?>
 
 
+        <!-- DISPLAY -->
 
-	<!-- MIDDLE -->
+        <div id="displayWrapper" class="displayContainer helvetica" style="overflow: hidden;">
 
-	<div id='00' class="middleContainer">
-	</div>	
-
-
-        <!-- MAIN -->
-
-        <div id='main' class='<?php echo ($language == "en") ? "englishMainContainer" : "arabicMainContainer" ?>'>
-
-        <!-- MENU -->
-
-        <div id='menu' class='<?php echo ($language == "en") ? "englishMenuContainer blue " : "arabicMenuContainer red " ?> tahoma'>
-
-                <p dir="rtl" lang="AR" class="tahoma green">
-
+		<!--  
                 <ul>
-                        <?php
-                                if ( $language == "en" ) $path = "14";
-                                if ( $language == "ar" ) $path = "15";
-                                $limit = 1;
-                                $selection = $idFull;
-                                // $linkPageName = $pageName;
-                                $linkPageName = "detail";                       // probably want to fix this and set using O-R$
-                                $breadcrumbsMode = FALSE;
-                                $multiColumn = 0;
-                                $stub = FALSE;
-                                $breadcrumbsMode = FALSE;
-                                $thisLanguage = $language;
-                                if (!$breadcrumbsMode) ($id) ? $breadcrumbsMode = TRUE : $breadcrumbsMode = FALSE;
-
-                                // displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
-                        ?>
+		<?php                                
+			$path = "2";
+			$limit = 1;
+			$selection = $idFull;
+			// $linkPageName = $pageName;
+			$linkPageName = "detail";       // probably want to fix this and set using O-R-G
+			$breadcrumbsMode = FALSE;
+			$multiColumn = 0;
+			$stub = FALSE;
+			$breadcrumbsMode = FALSE;
+			$thisLanguage = $language;
+			if (!$breadcrumbsMode) ($id) ? $breadcrumbsMode = TRUE : $breadcrumbsMode = FALSE;
+			displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn, $thisLanguage);
+			?>
                 </ul>
-        </p>
+		-->
+
+		<a href="javascript:void(0);" id="displayControl" class="" onmousedown = "hideShowMessage('displayWrapper','displayControl');">×</a><br /><br />
+	        <div id="display"></div>
         </div>
 
 
-		<?php
-		/*
-			// Query uses LEFT JOIN and multiple selection criteria to get objects with and without media from Front Page and News and return these in randomly sequenced rows . . . returns NULL if no media object attached to record
+        <!-- SOURCE -->
 
-			$returns = rand(3,8);			
-			$baseRecord = "_Home";
+        <div id='source' class='hide'>
 
-			$sql    = "SELECT objects.id AS objectsId, objects.name1, objects.deck, objects.active, objects.rank as objectsRank, objects.url, objects.end, wires.fromid, wires.toid, wires.active, media.id AS mediaId, media.object, media.type, media.caption AS mediaCaption, media.active, media.rank FROM objects, wires LEFT JOIN media ON media.object = wires.toid WHERE wires.fromid = (SELECT objects.id FROM objects WHERE objects.name1 LIKE '$baseRecord' AND objects.active='1' LIMIT 1)  AND wires.toid = objects.id AND objects.active = 1 AND wires.active = 1 AND ((media.rank IS NULL AND media.active IS NULL) OR (media.rank = 1 AND media.active = 1) OR (media.active = 1)) ORDER BY RAND() LIMIT $returns";
-			
-			$result =  MYSQL_QUERY($sql);	
+                <?php
 
-			while ( $myrow  =  MYSQL_FETCH_ARRAY($result) ) {
-					
-				$marginer = rand(10, 100);
-				$html = "\n	<a href='detail.php?id=" . $myrow['objectsId'] . "'>";
-				$html .= "<div class = 'thumbsContainer black euler' style = 'margin:" . $marginer . "px;'>";
-				$mediaFile = "MEDIA/". str_pad($myrow["mediaId"], 5, "0", str_pad_left) .".". $myrow["type"];
-				$mediaCaption = strip_tags($myrow["mediaCaption"]);
-				$name = strip_tags($myrow["name1"]);
-				$sizer = rand(75, 95) * .01;
-				$specs  = getimagesize($mediaFile);				
+                // SQL object
+                        
+		$sql = "SELECT objects.id, objects.name1, objects.deck, objects.body, objects.active, objects.rank FROM objects WHERE objects.id = $id 
+AND objects.active = '1' ORDER BY objects.rank;";
 
-				if ($specs[0] > $specs[1]) {
-								
-					$mediaStyle = "width:" . ($sizer * $specs[0]) . "px;";
-					
-				} else {
+                $result = MYSQL_QUERY($sql);
+                $myrow = MYSQL_FETCH_ARRAY($result);
+                $name = $myrow["name1"];
+                $body = $myrow["body"];
+                $html = $body;
+                echo nl2br($html);
 
-					$mediaStyle = "height:" . ($sizer * $specs[1]) . "px;";
-				}
-							
-				$html .= "\n	". displayMedia($mediaFile, $mediaCaption, $mediaStyle);
-				$html .= "<div class = 'captionContainer caption'>";
-				$html .= $name;
-				$html .= "</div>";
-				$html .= "</div>";
-				$html .= "</a>";
-				echo $html;		
-			}
-		}
-		*/ 
-		?>
-	
-        </div> 
+                ?>
+        </div>
 
-	<!-- /MAIN -->
+
+        <!-- IFRAME -->
+
+        <div class='iframeContainer'>
+        	<iframe id="iframe" name="iframe" src="iframe.php?id=<?php echo $id; ?>" frameborder="0">
+	        </iframe>
+        </div>
+
+        <script type="text/javascript">
+
+                var init = "true";
+                document.getElementById('iframe').onload = function() {
+
+                        if (init) {
+
+                                hideShowMessage('displayWrapper','displayControl','show');
+                                init = null;
+
+	                } else {
+
+                                hideShowMessage('displayWrapper','displayControl','hide');
+                        }
+                }
+        </script>
 
 <?php
 }

@@ -1,14 +1,8 @@
 
-        <div id='bottomrightcorner' class="bottomrightcornerContainer">
-                <script type="text/javascript" src="JS/animateCircle.js"></script>
+        <div id="logo" class="bottomrightcornerContainer">
 		<div>
 			<a href="index.php?id=2">
 				<img src="MEDIA/logo-red.gif" style="width:300px;">
-                        	<!-- 
-				<canvas id="canvas3" width="200" height="200">
-				loading...
-        	        	</canvas>
-				-->
 			</a>
 		</div>
         </div>
@@ -20,7 +14,8 @@
 
         <script type="text/javascript">
 
-		document.onload = initMessage("source","display",true,40); 
+		delay = 10;
+		document.onload = initMessage("source","display",<?php echo $animate; ?>,delay); 
 
 	</script>
 	

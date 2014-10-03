@@ -12,6 +12,9 @@
 	$idFull = $id;
 	$id = $ids[count($ids) - 1];
 	$pageName = basename($_SERVER['PHP_SELF'], ".php");
+
+	$animate = $_REQUEST['animate'];
+	if (!$animate) $animate = "true";
 	
 	// Live?
 	
@@ -28,12 +31,14 @@
 
 	$documentTitle = "Temple Contemporary";
 
+	/*
 	$staging = $_REQUEST['staging'];
 	$sql    = "SELECT deck FROM objects WHERE objects.name1 LIKE 'Live';";
 	$result =  MYSQL_QUERY($sql);
 	$myrow  =  MYSQL_FETCH_ARRAY($result);
 	$deck = $myrow["deck"];
 	if ( $deck == 'TRUE' ) $live = TRUE;
+	*/
 	
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"; 
 ?>
@@ -51,81 +56,7 @@
 	<script type="text/javascript" src="JS/animateMessage.js"></script>
 </head>
 
-<body> 
-
-        <!-- DISPLAY -->
-
-        <div id="displayWrapper" class="displayContainer helvetica" style="overflow: hidden;">
- 	<a href="javascript:void(0);" id="displayControl" class="" onmousedown = "hideShowMessage('displayWrapper','displayControl');">×</a>
-        <br />
-        <br />
-	<div id="display">
-        </div>
-        </div>
-
-
-        <!-- SOURCE -->
-
-        <div id='source' class='hide'>
-
-                <?php
-		
-		// better simpler w/o rootname -- ** fix **
-
-	        $rootid = $ids[0];
-
-        	// SQL object plus media plus rootname
-
-	        $sql = "SELECT objects.id AS objectsId, objects.name1, 
-objects.deck, objects.body, objects.notes, objects.active, objects.begin, 
-objects.end, objects.rank as objectsRank, (SELECT objects.name1 FROM objects 
-WHERE objects.id = $rootid) AS rootname, media.id AS mediaId, media.object AS 
-mediaObject, media.type, media.caption, media.active AS mediaActive, 
-media.rank FROM objects LEFT JOIN media ON objects.id = media.object AND 
-media.active = 1 WHERE objects.id = $id AND objects.active ORDER BY 
-media.rank;";
-
-	        $result = MYSQL_QUERY($sql);
-	        $myrow = MYSQL_FETCH_ARRAY($result);
-	        $rootname = $myrow['rootname'];
-	        $name = $myrow["name1"];
-	        $body = $myrow["body"];
-
-		// replace [ and ] with footnote style
-		// $bodyParsed = str_replace("]", "</span>", str_replace("[", "<span class='footnote'>", $body));
-		// $html = $bodyParsed;
-
-		$html = $body;
-		echo nl2br($html);
-
-                ?>
-        </div>
-
-
-        <!-- IFRAME -->
-
-        <div class='iframeContainer'>
-	<iframe id="iframe" name="iframe" src="iframe.php?id=<?php echo $id; ?>" frameborder="0">
-	</iframe>
-        </div>
-
-	<script type="text/javascript">
-	
-		var init = "true";
-		document.getElementById('iframe').onload = function() {
-
-			if (init == "true") {
-
-				hideShowMessage('displayWrapper','displayControl','show');
-				init = null;
-			} else {
-
-				hideShowMessage('displayWrapper','displayControl','hide');
-			}	
-		}
-	
-	</script>
-	
+<body>
 
 
 

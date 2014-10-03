@@ -32,48 +32,17 @@ iframe {
 
 /* Fonts */
 
-.times {
-	font-family: "Times New Roman", Times, serif; 
-	}
-
 .helvetica {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 	}
-
-.monaco {
-        font-family: Monaco, "Lucida Console", monospace;
-        }
 
 .courier {
         font-family: "Courier New", Courier, monospace;
         }
 
-.big {
-        font-size: 26px;
-        line-height: 26px;
-        }
-
-.medium {
-        font-size: 14px;
-        line-height: 20px;
-	/* letter-spacing: 1px; */
-        }
-
-.mediumadjust {
-        font-size: 15px;
-        line-height: 20px;
-	/* letter-spacing: 1px; */
-        }
-
 .caption {
         font-size: 12px;
         line-height: 14px;
-        }
-
-.footnote {
-        font-size: 12px;
-        line-height: 14px; 	  
-	vertical-align: top;
         }
 
 
@@ -84,7 +53,19 @@ iframe {
 	}
 
 #display {
-}
+	}
+
+#logo {
+	mix-blend-mode: multiply;    
+	-webkit-filter: drop-shadow(0px 0px 20px #F66);
+	filter: drop-shadow(0px 0px 20px #F66); 
+	}
+
+#logo:hover {
+	mix-blend-mode: multiply;    
+	-webkit-filter: drop-shadow(0px 0px 20px #F00);
+	filter: drop-shadow(0px 0px 20px #F00); 
+	}
 
 
 /* Containers */
