@@ -53,7 +53,7 @@
 
         <!-- IFRAME SOURCE -->
 
-        <div id="" class="">
+        <div class="">
                 <?php
 		
 	        $rootid = $ids[0];
@@ -67,13 +67,17 @@ mediaActive, media.rank FROM objects LEFT JOIN media ON objects.id = media.objec
 AND objects.active ORDER BY media.rank;";
 
 	        $result = MYSQL_QUERY($sql);
-	        $myrow = MYSQL_FETCH_ARRAY($result);
-                $mediaFile = "MEDIA/". str_pad($myrow["mediaId"], 5, "0", STR_PAD_LEFT) .".". $myrow["type"];
-                $mediaStyle = "width: 100%;";
-                $html .= "<div id='image".$i."' class = 'iframeImageContainer'>";
-                $html .= "\n    ". displayMedia($mediaFile, $mediaCaption, $mediaStyle);
-                $html .= "</div>";
 
+                $html = "<div id='image".$i."' class = 'iframeImageContainer'>";
+
+		while ( $myrow = MYSQL_FETCH_ARRAY($result) ) {
+
+                	$mediaFile = "MEDIA/". str_pad($myrow["mediaId"], 5, "0", STR_PAD_LEFT) .".". $myrow["type"];
+	                $mediaStyle = "width: 100%;";
+        	        $html .= "\n    ". displayMedia($mediaFile, $mediaCaption, $mediaStyle);
+		}
+	                
+		$html .= "</div>";
                 echo $html;
                 ?>
         </div>

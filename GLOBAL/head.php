@@ -51,6 +51,9 @@
 	<title><?php echo $documentTitle; ?></title>
 	<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
 	<meta http-equiv="Title" content="<?php echo $documentTitle; ?>" />		
+
+<meta name="viewport" content="width=400">
+
 	<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css" />
 	<script type="text/javascript" src="GLOBAL/global.js"></script>
 	<script type="text/javascript" src="JS/animateMessage.js"></script>
