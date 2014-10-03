@@ -14,7 +14,7 @@
 
         <script type="text/javascript">
 
-		delay = 10;
+		delay = 40;
 		document.onload = initMessage("source","display",<?php echo $animate; ?>,delay); 
 
 	</script>
