@@ -7,7 +7,7 @@
 	// Parse $id
 
 	$id = $_REQUEST['id'];		// no register globals	
-	if (!$id) $id = "0";
+	if (!$id) $id = "2";
 	$ids = explode(",", $id);
 	$idFull = $id;
 	$id = $ids[count($ids) - 1];
