@@ -37,7 +37,7 @@
 	// (hour, minute, second, month, day, year)
 
 	// Client URL
-	$dbHost = "http://localhost/TEMPLECONTEMPORARY/";
+	$dbHost = "http://www.templecontemporary.info//";
 
 	// DB Admin
 	$dbAdmin = $dbHost ."OPEN-RECORDS-GENERATOR/";
@@ -58,14 +58,14 @@
 
 function dbConnectMain($dbUser) {
 
-	$dbMainHost = "localhost";
-	$dbMainDbse = "templecontemporary";
+	$dbMainHost = "db152a.pair.com";
+	$dbMainDbse = "templecontemp_main";
 
-	if 		($dbUser == 1) {		$dbMainUser = "root"; 	$dbMainPass = ""; 
+	if 		($dbUser == 1) {		$dbMainUser = "1026876"; 	$dbMainPass = "S3rRZ45q"; 
 }
-	else if ($dbUser == 2) {		$dbMainUser = "root"; 	$dbMainPass = ""; 
+	else if ($dbUser == 2) {		$dbMainUser = "1026876"; 	$dbMainPass = "S3rRZ45q"; 
 }
-	else if ($dbUser == 3) {		$dbMainUser = "root";   	$dbMainPass = ""; 
+	else if ($dbUser == 3) {		$dbMainUser = "1026876";   	$dbMainPass = "S3rRZ45q"; 
 }
 
 	$dbConnect = MYSQL_CONNECT($dbMainHost, $dbMainUser, $dbMainPass);
