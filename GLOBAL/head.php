@@ -13,8 +13,8 @@
 	$id = $ids[count($ids) - 1];
 	$pageName = basename($_SERVER['PHP_SELF'], ".php");
 
-	$animate = $_REQUEST['animate'];
-	if (!$animate) $animate = "true";
+	// $animate = $_REQUEST['animate'];
+	// if (!$animate) $animate = "true";
 	
 	// Live?
 	
