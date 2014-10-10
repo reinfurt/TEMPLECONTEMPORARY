@@ -21,9 +21,9 @@
 	// $live is stored in database and turns on site
 	// $dev is passed in query and stored in cookie
 
-	$dev = $_REQUEST['dev'];
-	$dev = systemCookie("devCookie", $dev, 0);
-	if (!$dev) die('Under construction . . .');
+	// $dev = $_REQUEST['dev'];
+	// $dev = systemCookie("devCookie", $dev, 0);
+	// if (!$dev) die('Under construction . . .');
 	
 	// Alt for dev options
 	
